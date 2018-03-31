@@ -24,10 +24,10 @@ $(document).ready(function(){
             // User is signed in.
             console.log(user);
             // make visual changes to nav links
-            $('header .logout').removeClass('hidden')
-            $('header .profile').removeClass('hidden')
-            $('header .login').hide()
-            $('header .signUp').hide()
+            $('.logout').removeClass('hidden')
+            $('.profile').removeClass('hidden')
+            $('.login').addClass('hidden')
+            $('.signUp').addClass('hidden')
 
 
         // when user signs out
@@ -36,8 +36,8 @@ $(document).ready(function(){
             // make visual changes to nav links
             $('header .logout').addClass('hidden')
             $('header .profile').addClass('hidden')
-            $('header .login').show()
-            $('header .signUp').show()
+            $('header .login').removeClass('hidden')
+            $('header .signUp').removeClass('hidden')
         // ...
         }
     });
@@ -46,13 +46,19 @@ $(document).ready(function(){
     // Database no in use yet
     //var database = firebase.database()
 
+    // triggers dropdown menu
     $('.dropdown-trigger').dropdown();
-    
+
+    // modal popups
     $('.modal').modal();
 
+    // when user submits
     $("#submit").on("click", function(event) {
         event.preventDefault();
     })
+
+    // carousel functionality
+    $('.carousel').carousel();
 
     
 })
