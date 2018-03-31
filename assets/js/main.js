@@ -46,6 +46,8 @@ $(document).ready(function(){
     // Database no in use yet
     //var database = firebase.database()
 
+    $('.dropdown-trigger').dropdown();
+    
     $('.modal').modal();
 
     $("#submit").on("click", function(event) {
