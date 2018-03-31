@@ -1,49 +1,61 @@
 // Initialize Firebase
 var config = {
-apiKey: "AIzaSyDOYpHtFpO_zc0j07ieVWpUT4CjceeEJ1g",
-authDomain: "project1-e5380.firebaseapp.com",
-databaseURL: "https://project1-e5380.firebaseio.com",
-projectId: "project1-e5380",
-storageBucket: "project1-e5380.appspot.com",
-messagingSenderId: "891558406446"
+    apiKey: "AIzaSyDOYpHtFpO_zc0j07ieVWpUT4CjceeEJ1g",
+    authDomain: "project1-e5380.firebaseapp.com",
+    databaseURL: "https://project1-e5380.firebaseio.com",
+    projectId: "project1-e5380",
+    storageBucket: "project1-e5380.appspot.com",
+    messagingSenderId: "891558406446"
 };
+    
 firebase.initializeApp(config);
 
 
-// ======= FIREBASE AUTHENTICATION ONCHANGE LISTENER ======= //
-// Listen for authentication state changes 
-firebase.auth().onAuthStateChanged(function(user) {
-    // when user signs in
-    if (user) {
-        // User is signed in.
-        console.log(user);
-        // make visual changes to nav links
-        $('header .logout').removeClass('hidden')
-        $('header .profile').removeClass('hidden')
-        $('header .login').hide()
-        $('header .signUp').hide()
-
-
-    // when user signs out
-    } else {
-        // User is signed out.
-        // make visual changes to nav links
-        $('header .logout').addClass('hidden')
-        $('header .profile').addClass('hidden')
-        $('header .login').show()
-        $('header .signUp').show()
-      // ...
-    }
-});
-
-
-
-
 // On Document Load
-$(document).ready(() => {
+$(document).ready(function(){
     console.log('Ready');
+
+
+    // ======= FIREBASE AUTHENTICATION ONCHANGE LISTENER ======= //
+    // Listen for authentication state changes 
+    firebase.auth().onAuthStateChanged(function(user) {
+        // when user signs in
+        if (user) {
+            // User is signed in.
+            console.log(user);
+            // make visual changes to nav links
+            $('header .logout').removeClass('hidden')
+            $('header .profile').removeClass('hidden')
+            $('header .login').hide()
+            $('header .signUp').hide()
+
+
+        // when user signs out
+        } else {
+            // User is signed out.
+            // make visual changes to nav links
+            $('header .logout').addClass('hidden')
+            $('header .profile').addClass('hidden')
+            $('header .login').show()
+            $('header .signUp').show()
+        // ...
+        }
+    });
+
+
+    // Database no in use yet
+    //var database = firebase.database()
+
+    $('.modal').modal();
+
+    $("#submit").on("click", function(event) {
+        event.preventDefault();
+    })
+
     
 })
+
+
 
 
 
@@ -94,7 +106,6 @@ $('#sign_up_form').on('click', '#sign_up_submit', (e) => {
     
 })
 
-
 // =======  USER SIGN IN FUNCTION ======= //
 // When user submits the Login form
 $('#login_form').on('click', '#login_submit', (e) => {
@@ -141,7 +152,6 @@ $('#login_form').on('click', '#login_submit', (e) => {
     $('#login_password_input').val('')
     
 })
-
 
 // =======  USER LOGOUT FUNCTION ======= //
 // When user clicks the logout button
