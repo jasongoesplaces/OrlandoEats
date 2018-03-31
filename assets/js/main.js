@@ -10,10 +10,147 @@ messagingSenderId: "891558406446"
 firebase.initializeApp(config);
 
 
+// ======= FIREBASE AUTHENTICATION ONCHANGE LISTENER ======= //
+// Listen for authentication state changes 
+firebase.auth().onAuthStateChanged(function(user) {
+    // when user signs in
+    if (user) {
+        // User is signed in.
+        console.log(user);
+        // make visual changes to nav links
+        $('header .logout').removeClass('hidden')
+        $('header .profile').removeClass('hidden')
+        $('header .login').hide()
+        $('header .signUp').hide()
+
+
+    // when user signs out
+    } else {
+        // User is signed out.
+        // make visual changes to nav links
+        $('header .logout').addClass('hidden')
+        $('header .profile').addClass('hidden')
+        $('header .login').show()
+        $('header .signUp').show()
+      // ...
+    }
+});
+
+
 
 
 // On Document Load
 $(document).ready(() => {
     console.log('Ready');
     
+})
+
+
+
+// =======  USER SIGN UP FUNCTION ======= //
+// When user submits the sign up form
+$('#sign_up_form').on('click', '#sign_up_submit', (e) => {
+    // prevent default submit
+    e.preventDefault()
+
+    // grab the email value
+    var email = $('#sign_up_email_input').val().trim()
+    // grab the password value
+    var password = $('#sign_up_password').val().trim()
+    // grab the password confirm value
+    var passwordConfirm = $('#sign_up_password_confirm').val().trim()
+
+
+    // run simple validation against the inputs
+    if(email.length < 1){
+        console.log('Enter a valid email address');
+        
+        if (password !== passwordConfirm) {
+            console.log('Check Passwords');
+            
+        }
+
+    }
+    else if (password !== passwordConfirm)  {
+        console.log('Check passwords');
+        
+    }
+    else {
+        // once validtions pass
+        console.log('Passed Validation Created new User');
+        // run createUserWithEmailAndPassword
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch((error) => {
+            console.log(error.code);
+            console.log(error.message);
+            
+        })
+        
+    }
+
+    // Empty out the input values
+    $('#sign_up_email_input').val('')
+    $('#sign_up_password').val('')
+    $('#sign_up_password_confirm').val('')
+    
+})
+
+
+// =======  USER SIGN IN FUNCTION ======= //
+// When user submits the Login form
+$('#login_form').on('click', '#login_submit', (e) => {
+    // prevent default submit
+    e.preventDefault()
+
+    // grab the email value
+    var email = $('#login_email_input').val().trim()
+    // grab the password value
+    var password = $('#login_password_input').val().trim()
+
+
+    // run simple validation against the inputs
+    if(email.length < 1){
+        console.log('Enter a valid email address');
+        
+        if (password.length < 1) {
+            console.log('Enter Password');
+            
+        }
+
+    }
+    else if (password.length < 1)  {
+        console.log('Check passwords');
+        
+    }
+    else {
+        // once validtions pass
+        console.log('Passed Validation Logging User In');
+        // run signInWithEmailAndPassword
+        firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+            // redirect_to index
+            window.location.replace('index.html');
+        }).catch((error) => {
+            console.log(error.code);
+            console.log(error.message);
+            
+        })
+        
+    }
+
+    // Empty out the input values
+    $('#login_email_input').val('')
+    $('#login_password_input').val('')
+    
+})
+
+
+// =======  USER LOGOUT FUNCTION ======= //
+// When user clicks the logout button
+$('header').on('click', '.logout', () => {
+    // User signed out
+    console.log('User signed out');
+    // redirect back to login
+    firebase.auth().signOut().then(() => {
+        // run auth signOut method
+        window.location.replace('login.html');
+    })
 })
