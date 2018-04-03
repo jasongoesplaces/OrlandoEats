@@ -24,12 +24,20 @@ p {
   line-height: 2rem;
 }
 
-.sidenav-trigger {
-  color: rgb(106, 127, 178);
+.dropdown-trigger {
+  background-color: rgb(106, 127, 178);
 }
 
-.sidenav {
-  color: rgb(106, 127, 178)
+.dropdown-trigger:hover {
+  background-color: rgb(140, 150, 175)
+}
+
+.btn:focus {
+  background-color: rgb(58, 90, 172);
+}
+
+a.menu {
+  color: rgb(106, 127, 178);
 }
 
 .parallax-container {
@@ -101,4 +109,18 @@ footer.page-footer {
 
 .tab a.tabText:hover {
   color: rgb(58, 91, 177)
+}
+
+.userProfile {
+  color: rgb(106, 127, 178);
+  margin-left: 10%;
+
+}
+
+.userProfile h5 {
+  margin-left: 5%;
+}
+
+.page-footer {
+  background-color: rgb(106, 127, 178);
 }
