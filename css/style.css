@@ -114,7 +114,8 @@ footer.page-footer {
 .userProfile {
   color: rgb(106, 127, 178);
   margin-left: 10%;
-
+  padding-top: 3.5%;
+  padding-bottom: 4%;
 }
 
 .userProfile h5 {
@@ -123,4 +124,11 @@ footer.page-footer {
 
 .page-footer {
   background-color: rgb(106, 127, 178);
+}
+
+.userFavorites {
+  color: rgb(106, 127, 178);
+  margin-left: 10%;
+  padding-top: 3.5%;
+  padding-bottom: 4%;
 }
