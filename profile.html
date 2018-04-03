@@ -27,10 +27,10 @@
                 </a>
 
                 <ul id='dropdown1' class='dropdown-content'>
-                    <li class="hidden menu">
+                    <li class="menu">
                         <a data-target="modal1" class="modal-trigger indigo-text text-lighten-2">Sign Up</a>
                     </li>
-                    <li class="hidden menu"> 
+                    <li class="menu"> 
                         <a data-target="modal2" class="modal-trigger indigo-text text-lighten-2">Log In</a>
                     </li>
                     <li class="profile">
@@ -41,28 +41,51 @@
                     </li>
                 </ul>
 
-            <ul id="nav-mobile" class="sidenav">
-                <li>
-                    <a href="#">Navbar Link</a>
-                </li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-                <i class="material-icons">menu</i>
-            </a>
         </div>
     </nav>
 
     <div class="row">
-        <div class="col s12">
+        <div class="col s12 profileArea">
             <ul class="tabs">
             <li class="tab col s3"><a class="active tabText" href="#profile">Profile</a></li>
             <li class="tab col s3"><a class="tabText" href="#favorites">Favorites</a></li>
             </ul>
         </div>
-        <div id="profile" class="col s12">
-            
+        <div id="profile" class="col s12 profileArea">
+            <div class="userProfile">
+                <h3>Profile:</h3>
+                <h5>Name:<span id="userName"></span></h5>
+                <h5>Email:<span id="userEmail"></span></h5>
+                <h5>UID:<span id="uid"></span></h5>
+                <a data-target="modal3" class="btn modal-trigger profileBtn">Edit Profile</a>
+                <div id="modal3" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <form id="editForm" class="col s12">
+                                <h2>Edit Profile</h2>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="email">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btnProfileEdit" id="profileEditSubmit" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="favorites" class="col s12">
+
+        <div id="favorites" class="col s12 profileArea">
             <div class="userFavorites">
                 <h3>Favorites:</h3>
                 <span id="userFavs"></span>
@@ -74,44 +97,26 @@
     <footer class="page-footer">
         <div class="container">
             <div class="row">
-                <div class="col l6 s12">
+                <div class="col l6 s12 footerDev">
                     <h5 class="white-text"> UX | UI developed in Orlando</h5>
                     <p class="grey-text text-lighten-4">We are a team of three students working on our first group project for the UCF Coding BootCamp. In this
                         full stack development course we are learning all the skills necessary to create dynamic web applications.
                         Visit our portfolio here for more information.</p>
 
                 </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Settings</h5>
-                    <ul>
-                        <li>
-                            <a class="white-text" href="#!">Link 1</a>
-                        </li>
-                        <li>
-                            <a class="white-text" href="#!">Link 2</a>
-                        </li>
-                        <li>
-                            <a class="white-text" href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a class="white-text" href="#!">Link 4</a>
-                        </li>
-                    </ul>
+                <div class="col l1 s12 footerSpace">
                 </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Connect</h5>
+                <div class="col l5 s12 footerConnect">
+                    <h5 class="white-text">Connect With Us On Github</h5>
                     <ul>
                         <li>
-                            <a class="white-text" href="#!">Link 1</a>
+                            <a class="white-text" href="https://github.com/aalkowni90">Amani Alkowni</a>
                         </li>
                         <li>
-                            <a class="white-text" href="#!">Link 2</a>
+                            <a class="white-text" href="https://github.com/jasongoesplaces">Jason Schultz</a>
                         </li>
                         <li>
-                            <a class="white-text" href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a class="white-text" href="#!">Link 4</a>
+                            <a class="white-text" href="https://github.com/kyl3thegreat">Kyle Shrote</a>
                         </li>
                     </ul>
                 </div>

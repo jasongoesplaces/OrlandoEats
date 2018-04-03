@@ -29,7 +29,7 @@ p {
 }
 
 .dropdown-trigger:hover {
-  background-color: rgb(140, 150, 175)
+  background-color: rgb(140, 150, 175);
 }
 
 .btn:focus {
@@ -127,4 +127,29 @@ footer.page-footer {
   margin-left: 10%;
   padding-top: 3.5%;
   padding-bottom: 4%;
+}
+
+.profileArea {
+  background-color: white;
+}
+
+.profileBtn {
+  color: white;
+  background-color: rgb(106, 127, 178);
+}
+
+.profileBtn:hover {
+  background-color: rgb(140, 150, 175);
+}
+
+.btnProfileEdit {
+  background-color: rgb(106, 127, 178);
+}
+
+.btnProfileEdit:hover {
+  background-color: rgb(140, 150, 175);
+}
+
+.footerConnect {
+  text-align: center;
 }
