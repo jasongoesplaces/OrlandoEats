@@ -25,7 +25,11 @@ p {
 }
 
 .sidenav-trigger {
-  color: #26a69a;
+  color: rgb(106, 127, 178);
+}
+
+.sidenav {
+  color: rgb(106, 127, 178)
 }
 
 .parallax-container {
@@ -72,11 +76,29 @@ body {
 footer.page-footer {
   margin: 0;
 }
-.carousel{
-  left: -9999px;  /*important */
-   right: -9999px;  /*important */
-   margin: 0 auto;  /*important */
-   max-width: none;  /*important */
-   min-width: 100%;
-   position: absolute
+
+
+.carousel .carousel-item {
+  width: 31%;
+}
+
+.hidden {
+  display: none;
+}
+
+.tabs .indicator{
+  background-color: rgb(106, 127, 178)!important;
+}
+
+.tab a.active {
+    color: rgb(106, 127, 178)!important;
+    background-color:rgba(106, 126, 178, 0.288)!important;
+}
+
+.tab a.tabText {
+  color: rgb(106, 127, 178);
+}
+
+.tab a.tabText:hover {
+  color: rgb(58, 91, 177)
 }

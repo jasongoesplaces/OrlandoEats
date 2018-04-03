@@ -60,6 +60,9 @@ $(document).ready(function(){
     // carousel functionality
     $('.carousel').carousel();
 
+    //profile page tabs functionality
+    $('.tabs').tabs();
+
     
 })
 
