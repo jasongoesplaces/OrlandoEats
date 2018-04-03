@@ -1,0 +1,143 @@
+/* Custom Stylesheet */
+
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+.logo {
+  background-color: #f8f8ff;
+  height: 100px;
+  width: 120px;
+  position: relative; 
+  top: -20px; 
+}
+
+p {
+  line-height: 2rem;
+}
+
+.dropdown-trigger {
+  background-color: rgb(106, 127, 178);
+}
+
+.dropdown-trigger:hover {
+  background-color: rgb(140, 150, 175)
+}
+
+.btn:focus {
+  background-color: rgb(58, 90, 172);
+}
+
+a.menu {
+  color: rgb(106, 127, 178);
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255, 255, 255, .9);
+}
+
+.parallax-container .section {
+  width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+
+body {
+  background-image: url("../images/background1.jpeg");
+  background-repeat: no-repeat;
+
+}
+
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+
+.carousel .carousel-item {
+  width: 31%;
+}
+
+.hidden {
+  display: none;
+}
+
+.tabs .indicator{
+  background-color: rgb(106, 127, 178)!important;
+}
+
+.tab a.active {
+    color: rgb(106, 127, 178)!important;
+    background-color:rgba(106, 126, 178, 0.288)!important;
+}
+
+.tab a.tabText {
+  color: rgb(106, 127, 178);
+}
+
+.tab a.tabText:hover {
+  color: rgb(58, 91, 177)
+}
+
+.userProfile {
+  color: rgb(106, 127, 178);
+  margin-left: 10%;
+  padding-top: 3.5%;
+  padding-bottom: 4%;
+}
+
+.userProfile h5 {
+  margin-left: 5%;
+}
+
+.page-footer {
+  background-color: rgb(106, 127, 178);
+}
+
+.userFavorites {
+  color: rgb(106, 127, 178);
+  margin-left: 10%;
+  padding-top: 3.5%;
+  padding-bottom: 4%;
+}
+.btn-large {
+background-color: rgb(58, 91, 177)
+}
+
+.btn-large:hover {
+  background-color: rgb(140, 150, 175); 
+}
+
+
