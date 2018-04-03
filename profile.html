@@ -1,0 +1,138 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Orlando Eats</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+
+<body>
+
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+            <!-- <a id="logo-container" href="./assets/images/logo2.jpg" class="brand-logo"></a> -->
+            <a href="index.html">
+                <img class="logo" src="./assets/images/logo2.jpg" alt="orlandoeats">
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>
+                    <i class="material-icons">menu</i>
+                </a>
+
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li class="hidden menu">
+                        <a data-target="modal1" class="modal-trigger signUp">Sign Up</a>
+                    </li>
+                    <li class="hidden menu"> 
+                        <a data-target="modal2" class="modal-trigger logIn">Log In</a>
+                    </li>
+                    <li class="profile">
+                        <a class="menu" href="profile.html">Profile</a>
+                    </li>
+                    <li class="logOut">
+                        <a class="menu" href="#!">Sign Out</a>
+                    </li>
+                </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li>
+                    <a href="#">Navbar Link</a>
+                </li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+            <li class="tab col s3"><a class="active tabText" href="#profile">Profile</a></li>
+            <li class="tab col s3"><a class="tabText" href="#favorites">Favorites</a></li>
+            </ul>
+        </div>
+        <div id="profile" class="col s12">
+            
+        </div>
+        <div id="favorites" class="col s12">
+            <div class="userFavorites">
+                <h3>Favorites:</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text"> UX | UI developed in Orlando</h5>
+                    <p class="grey-text text-lighten-4">We are a team of three students working on our first group project for the UCF Coding BootCamp. In this
+                        full stack development course we are learning all the skills necessary to create dynamic web applications.
+                        Visit our portfolio here for more information.</p>
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Settings</h5>
+                    <ul>
+                        <li>
+                            <a class="white-text" href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Link 4</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Connect</h5>
+                    <ul>
+                        <li>
+                            <a class="white-text" href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Link 4</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by
+                <a class="brown-text text-lighten-3" href="https://aalkowni90.github.io/Orlandoeats/">OrlandoEats</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Added Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <!-- Firebase Module  -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <!-- Main JavaScript file -->
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
