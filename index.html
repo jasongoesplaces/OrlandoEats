@@ -9,7 +9,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <!-- Main Styles -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
 
@@ -18,28 +18,26 @@
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
             <!-- <a id="logo-container" href="./assets/images/logo2.jpg" class="brand-logo"></a> -->
-            <a href="index.html">
+            <a href>
                 <img class="logo" src="./assets/images/logo2.jpg" alt="orlandoeats">
             </a>
             <ul class="right hide-on-med-and-down">
-
                 <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>
                     <i class="material-icons">menu</i>
                 </a>
 
                 <ul id='dropdown1' class='dropdown-content'>
                     <li>
-                        <a data-target="modal1" class="modal-trigger indigo-text text-lighten-2">Sign Up</a>
+                        <a data-target="modal1" class="modal-trigger signUp">Sign Up</a>
                     </li>
                     <li>
-                        <a data-target="modal2" class="modal-trigger indigo-text text-lighten-2">Log In</a>
-
+                        <a data-target="modal2" class="modal-trigger logIn">Log In</a>
                     </li>
                     <li class="hidden profile">
-                        <a class="indigo-text text-lighten-2" href="profile.html">Profile</a>
+                        <a href="profile.html">Profile</a>
                     </li>
                     <li class="hidden logOut">
-                        <a class="indigo-text text-lighten-2" href="#!">Sign Out</a>
+                        <a href="#!">Sign Out</a>
                     </li>
                 </ul>
 
@@ -47,31 +45,31 @@
                 <div id="modal1" class="modal">
                     <div class="modal-content">
                         <div class="row">
-                            <form id="signUpForm" class="col s12">
+                            <form class="col s12">
                                 <h2>Sign Up</h2>
                                 <div class="row">
                                     <div class="input-field col s12">
+                                        <input id="email" type="email" class="validate">
                                         <label for="email">Email</label>
-                                        <input type="email" class="email validate">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <label for="password">Create Password</label>
-                                        <input type="password" class="password validate">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email">Create Password</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <label for="password">Confirm Password</label>
-                                        <input type="password" class="passwordConfirm validate">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email">Confirm Password</label>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn" id="signUpSubmit" type="submit">Submit</button>
+                        <button class="btn" id="submit" type="submit">Submit</button>
                     </div>
                 </div>
 
@@ -79,25 +77,25 @@
                 <div id="modal2" class="modal">
                     <div class="modal-content">
                         <div class="row">
-                            <form id="signInForm"class="col s12">
+                            <form class="col s12">
                                 <h2>Log In</h2>
                                 <div class="row">
                                     <div class="input-field col s12">
+                                        <input id="email" type="email" class="validate">
                                         <label for="email">Email</label>
-                                        <input type="email" class="email validate">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <label for="password">Password</label>
-                                        <input type="password" class="password validate">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email">Password</label>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn" id="signInSubmit" type="submit">Submit</button>
+                        <button class="btn" id="submit" type="submit">Submit</button>
                     </div>
                 </div>
             </ul>
@@ -118,12 +116,12 @@
             <div class="container">
                 <br>
                 <br>
-                <h1 class="header center teal-text text-lighten-2">Orlando Eats</h1>
+                <h1 class="header center rgb(106, 127, 178)-text text-lighten-2">Orlando Eats</h1>
                 <div class="row center">
-                    <h5 class="header col s12 light">Find the best resturants, cafe, and bars in Orlando</h5>
+                    <h5 class="header col s12 light">Find the best restaurants, cafés, and bars in Orlando!</h5>
                 </div>
                 <div class="row center">
-                    <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+                    <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light lighten-1">Get Started</a>
                 </div>
                 <br>
                 <br>
@@ -131,8 +129,7 @@
             </div>
         </div>
         <div class="parallax">
-            <img src="./assets/images/background2.jpg" alt="Unsplashed background img 1" style="transform: translate3d(-50%, 240.732px, 0px); opacity:1;">
-            <img src="./assets/images/background1.jpeg" alt="Unsplashed background img 1" style="transform: translate3d(-50%, 240.732px, 0px); opacity:1;">
+            <img src="assets/images/background2.jpg" alt="Unsplashed background img 1" style="transform: translate3d(-50%, 240.732px, 0px); opacity:1;">
         </div>
     </div>
 
@@ -145,13 +142,11 @@
                 <div class="col s12 m4">
                     <div class="icon-block">
                         <h2 class="center brown-text">
-                            <i class="material-icons">flash_on</i>
+                            <i class="material-icons">place</i>
                         </h2>
-                        <h5 class="center">Speeds up development</h5>
+                        <h5 class="center">Explore new eats</h5>
 
-                        <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom
-                            components. Additionally, we refined animations and transitions to provide a smoother experience
-                            for developers.</p>
+                        <p class="light">Our vast community of food lovers share their reviews and photos, so you have all that you need to make an informed choice of your next foodie moment.</p>
                     </div>
                 </div>
 
@@ -160,23 +155,20 @@
                         <h2 class="center brown-text">
                             <i class="material-icons">group</i>
                         </h2>
-                        <h5 class="center">User Experience Focused</h5>
+                        <h5 class="center">Popular Eats</h5>
 
-                        <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that
-                            incorporates components and animations that provide more feedback to users. Additionally, a single
-                            underlying responsive system across all platforms allow for a more unified user experience.</p>
+                        <p class="light">Building amazing experiences around the foods we love to eat with the people we love. </p>
                     </div>
                 </div>
 
                 <div class="col s12 m4">
                     <div class="icon-block">
                         <h2 class="center brown-text">
-                            <i class="material-icons">settings</i>
+                            <i class="material-icons">rate_review</i>
                         </h2>
-                        <h5 class="center">Easy to work with</h5>
+                        <h5 class="center">Top Reviews</h5>
 
-                        <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started.
-                            We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                        <p class="light">We have provided detailed reviews of all the resturants available in Orlando based on the cuisine category that you choose from.</p>
                     </div>
                 </div>
             </div>
@@ -189,27 +181,27 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <div id="collections" class="carousel">
-                        <a class="carousel-item" data-collectionId="1" href="#one!">
-                            <img src="./assets/images/placeholder1.jpg">
+                    <div class="carousel">
+                        <a class="carousel-item" href="#one!">
+                            <img src="assets/images/placeholder1.jpg">
                         </a>
-                        <a class="carousel-item" data-collectionId="467" href="#two!">
-                            <img src="./assets/images/placeholder2.jpg">
+                        <a class="carousel-item" href="#two!">
+                            <img src="assets/images/placeholder2.jpg">
                         </a>
-                        <a class="carousel-item" data-collectionId="20" href="#three!">
-                            <img src="./assets/images/placeholder3.jpg">
+                        <a class="carousel-item" href="#three!">
+                            <img src="assets/images/placeholder3.jpg">
                         </a>
-                        <a class="carousel-item" data-collectionId="428" href="#four!">
-                            <img src="./assets/images/placeholder4.jpg">
+                        <a class="carousel-item" href="#four!">
+                            <img src="assets/images/placeholder4.jpg">
                         </a>
-                        <a class="carousel-item" data-collectionId="40" href="#five!">
-                            <img src="./assets/images/placeholder5.jpg">
+                        <a class="carousel-item" href="#five!">
+                            <img src="assets/images/placeholder5.jpg">
                         </a>
-                        <a class="carousel-item" data-collectionId="94" href="#six!">
-                            <img src="./assets/images/placeholder6.jpg">
+                        <a class="carousel-item" href="#six!">
+                            <img src="assets/images/placeholder6.jpg">
                         </a>
-                        <a class="carousel-item" data-collectionId="65" href="#seven!">
-                            <img src="./assets/images/placeholder7.jpg">
+                        <a class="carousel-item" href="#seven!">
+                            <img src="assets/images/placeholder7.jpg">
                         </a>
                     </div>
                 </div>
@@ -253,7 +245,7 @@
         </div> -->
     </div>
 
-    <footer class="page-footer teal">
+    <footer class="page-footer rgb(106, 127, 178);">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
@@ -315,7 +307,7 @@
     <!-- Firebase Module  -->
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <!-- Main JavaScript file -->
-    <script src="./assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

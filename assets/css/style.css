@@ -36,6 +36,10 @@ p {
   background-color: rgb(58, 90, 172);
 }
 
+a.menu {
+  color: rgb(106, 127, 178);
+}
+
 .parallax-container {
   min-height: 380px;
   line-height: 0;
@@ -128,3 +132,12 @@ footer.page-footer {
   padding-top: 3.5%;
   padding-bottom: 4%;
 }
+.btn-large {
+background-color: rgb(58, 91, 177)
+}
+
+.btn-large:hover {
+  background-color: rgb(140, 150, 175)
+}
+
+
