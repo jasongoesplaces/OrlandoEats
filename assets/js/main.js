@@ -15,14 +15,12 @@ firebase.initializeApp(config);
 
 // On Document Load
 $(document).ready(function(){
-    var currentPage = window.location.pathname
     console.log('Ready');
 
-    console.log(window.location);
+    console.log(window.location.pathname);
 
     // TEST > to see if user is on the index.html page
-    if(window.location.pathname === currentPage){
-        console.log("user is on home page")
+    if(window.location.pathname === '/index.html'){
         getOrlandoCollection()
         // TODO:
         // - dynamically build out html for the carousel include the ajax response from getOrlandoCOllection()
@@ -99,7 +97,6 @@ $(document).ready(function(){
     $('.modal').modal();
     // carousel functionality
     $('.carousel').carousel();
-    $('.carousel.carousel-slider').carousel({fullWidth: true});
     //profile page tabs functionality
     $('.tabs').tabs();
 
@@ -113,20 +110,6 @@ $(document).ready(function(){
 
 
 // ====== GLOBAL SITE FUNCTIONS ====== //
-
-    // Build collections cards
-    function buildCollectionCards(collections){
-        console.log(collections)
-        collections.forEach(collection => {
-            console.log(collection)
-            $('.collectionsDiv').append('<div class="card collectionCard" data-collectionId="'+collection.collection.collection_id+'">'+
-                                            '<div class="col s12 m4 l4">'+
-                                                '<img src="'+collection.collection.image_url+'" class="collectionImage">'+
-                                                '<h3 class="collectionText">' + collection.collection.title + '</h3>'+
-                                            '</div>'+
-                                        '</div>')
-        })
-    }
 
     // Build the html for the restaurant view
     function buildRestaurantView(restaurant){
@@ -180,9 +163,7 @@ $(document).ready(function(){
         }).then((data) => {
             // on response call buildCollections(response as Parameters) function to build html
             // TODO: Create buildCollections(data) function
-            var collectionsData = data.collections
-            console.log(collectionsData)
-            buildCollectionCards(collectionsData)
+            console.log(data)
         }).catch((err) => {
             console.log(err); // Error handler
         })
@@ -233,7 +214,7 @@ $(document).ready(function(){
 
 
     // ======= ON COLLECTION CLICK LISTENER ======= //
-    $('.collectionsDiv').on('click', '.collectionCard', (e) => {
+    $('#collections').on('click', '.carousel-item', (e) => {
         console.log(e.currentTarget.dataset.collectionid);
         var collectionId = e.currentTarget.dataset.collectionid
         localStorage.setItem('collectionId', collectionId)
