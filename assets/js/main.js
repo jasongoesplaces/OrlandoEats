@@ -120,9 +120,9 @@ $(document).ready(function(){
         collections.forEach(collection => {
             console.log(collection)
             $('.collectionsDiv').append('<div class="card collectionCard" data-collectionId="'+collection.collection.collection_id+'">'+
-                                            '<div class="col s12 m4 l4">'+
+                                            '<div class="col s12 m4 l4 collections">'+
                                                 '<img src="'+collection.collection.image_url+'" class="collectionImage">'+
-                                                '<h3 class="collectionText">' + collection.collection.title + '</h3>'+
+                                                '<h5>' + collection.collection.title + '</h5>'+
                                             '</div>'+
                                         '</div>')
         })
