@@ -153,3 +153,12 @@ footer.page-footer {
 .footerConnect {
   text-align: center;
 }
+
+.collectionText {
+  color: rgb(106, 127, 178);
+}
+
+.collectionCard:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
