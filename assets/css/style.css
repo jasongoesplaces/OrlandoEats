@@ -206,6 +206,35 @@ nav .button-collapse i {
 }
 
 
+
+/* COLLECTION RESULTS STYLES */
+#collectionResults .card {
+  height: 250px;
+  padding: 20px;
+}
+#collectionResults .card-content {
+  padding: 10px;
+}
+#collectionResults .card-content .resName{
+  margin-top: 10px;
+  font-weight: 800;
+}
+#collectionResults .card-content .resAddress{
+  line-height: 20px;
+  margin: 10px 0;
+}
+#collectionResults .card-content p{
+  display: inline-block;
+  margin-right: 20px;
+}
+#collectionResults .card-content i{
+  margin-right: 5px;
+}
+.material-icons{ 
+  vertical-align: middle;
+}
+
+
 .collections {
   width: 274px;
   overflow: auto;

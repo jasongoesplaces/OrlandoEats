@@ -22,17 +22,23 @@ $(document).ready(function(){
 
     // TEST > to see if user is on the index.html page
     if(window.location.pathname === currentPage){
-        console.log("user is on home page")
         getOrlandoCollection()
         // TODO:
-        // - dynamically build out html for the carousel include the ajax response from getOrlandoCOllection()
+        // - dynamically build out html for the carousel include the ajax response from getOrlandoCollection()
     }
     // TEST > to see if user is on the collectionResuts.html page
-    if(window.location.pathname === '/collectionResults.html'){
+    // if(window.location.pathname === '/collectionResults.html'){
+    //     collectionId = localStorage.getItem('collectionId')
+    //     getCollectionfromId(collectionId)
+    //     localStorage.removeItem('collectionId')
+    //     //TODO:
+    // }
+     // Check to see if current page is the collectionResults page
+     if($('#collectionResults').length > 0){
+        console.log('On collection results page');
         collectionId = localStorage.getItem('collectionId')
         getCollectionfromId(collectionId)
         localStorage.removeItem('collectionId')
-        //TODO:
     }
     // TEST > to see if user is on the restaurantView.html page
     if(window.location.pathname === '/restaurantView.html'){
@@ -40,7 +46,7 @@ $(document).ready(function(){
         getRestaurant(resId)
         localStorage.removeItem('resId')
         //TODO:
-        
+
     }
 
 
@@ -147,15 +153,23 @@ $(document).ready(function(){
         console.log("Restuarants " + restaurants);
         restaurants.forEach(restaurant => {
             console.log(restaurant);
-            $('.collection').append('<li class="collection-item avatar" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
-                                        '<img src="" alt="" class="circle">'+
-                                        '<span class="title">'+ restaurant.restaurant.name +'</span>'+
-                                        '<p>'+ restaurant.restaurant.location.address +'</p>'+
-                                        '<p>'+ restaurant.restaurant.user_rating.aggregate_rating +'</p>'+
-                                    '</li>')
-            
+
+        $('#collectionResults .row').append('<div class="col s12 m6 l4 xl3">'+
+                                                '<div class="card blue darken-2">'+
+                                                    '<div class="card-content white-text">'+
+                                                        '<h1 class="card-title resName">'+ restaurant.restaurant.name +'</h1>'+
+                                                        '<p class="resAddress">'+ restaurant.restaurant.location.address +'</p>'+
+                                                        '<div class="collectionActions">'+
+                                                            '<p class="costForTwo"><i class="material-icons">attach_money</i>'+ restaurant.restaurant.average_cost_for_two +'</p>'+
+                                                            '<p class="averageRating"><i class="material-icons">group</i>'+ restaurant.restaurant.user_rating.aggregate_rating +'</p>'+
+                                                            '<p class="favorite"><i class="material-icons">favorite_border</i></p>'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    //'<img src="https://maps.googleapis.com/maps/api/staticmap?center="",""&zoom=12&size=400x400&maptype=roadmap&key=AIzaSyAszJS7qyZAOemVMSlfRNJ4FDj5uGI-m1M">'+
+                                                '</div>'+
+                                            '</div>')    
         });
-        //$('#collectionResults').append(restaurants)
+
     }
 
     // Builds html for the User Profile
