@@ -158,15 +158,6 @@ footer.page-footer {
   text-align: center;
 }
 
-.collectionText {
-  color: rgb(106, 127, 178);
-}
-
-.collectionCard:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-  
 .btn-large {
 background-color: rgb(58, 91, 177)
 }
