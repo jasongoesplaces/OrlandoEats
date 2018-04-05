@@ -91,9 +91,6 @@ $(document).ready(function(){
     $('.dropdown-trigger').dropdown();
     // modal popups
     $('.modal').modal();
-    // carousel functionality
-    $('.carousel').carousel();
-    $('.carousel.carousel-slider').carousel({fullWidth: true});
     //profile page tabs functionality
     $('.tabs').tabs();
 
@@ -174,7 +171,7 @@ function getPlace(placeId){
         console.log(collections)
         collections.slice(0,6).forEach(collection => {
             console.log(collection)
-            $('.collectionsDiv').append('<div class="card collectionCard" data-collectionId="'+collection.collection.collection_id+'">'+
+            $('.collectionsDiv').append('<div class="collectionCard" data-collectionId="'+collection.collection.collection_id+'">'+
                                             '<div class="col s12 m4 l4 collections">'+
                                                 '<img src="'+collection.collection.image_url+'" class="collectionImage">'+
                                                 '<h5>' + collection.collection.title + '</h5>'+
@@ -221,7 +218,7 @@ function getPlace(placeId){
             console.log(restaurant);
 
         $('#collectionResults .row').append('<div class="col s12 m6 l4 xl3">'+
-                                                '<div class="card blue darken-2" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
+                                                '<div class="card collResultsCard" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
                                                     '<div class="card-content white-text">'+
                                                         '<h1 class="card-title resName">'+ restaurant.restaurant.name +'</h1>'+
                                                         '<p class="resAddress">'+ restaurant.restaurant.location.address +'</p>'+

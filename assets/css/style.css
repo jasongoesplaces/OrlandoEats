@@ -290,7 +290,20 @@ nav .button-collapse i {
 .mapContainer {
   
 }
+
 #map {
   min-height: 400px;
   width: 100%;
+}
+
+.collResultsCard {
+  background-color: rgb(106, 127, 178);
+}
+
+.restaurantInfo {
+  color: rgb(106, 127, 178);
+}
+
+.restaurantInfo a {
+  color: rgb(58, 90, 172);
 }
