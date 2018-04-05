@@ -21,28 +21,87 @@
             <a href="index.html">
                 <img class="logo" src="./assets/images/logo2.jpg" alt="orlandoeats">
             </a>
-            <ul class="right hide-on-med-and-down">
+            <ul class="right">
                 <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>
                     <i class="material-icons">menu</i>
                 </a>
 
                 <ul id='dropdown1' class='dropdown-content'>
-                    <li class="menu">
-                        <a data-target="modal1" class="modal-trigger indigo-text text-lighten-2">Sign Up</a>
+                    <li class="signUp">
+                        <a data-target="modal1" class="modal-trigger">Sign Up</a>
                     </li>
-                    <li class="menu"> 
-                        <a data-target="modal2" class="modal-trigger indigo-text text-lighten-2">Log In</a>
+                    <li class="logIn">
+                        <a data-target="modal2" class="modal-trigger">Log In</a>
                     </li>
-                    <li class="profile">
-                        <a class="indigo-text text-lighten-2" href="profile.html">Profile</a>
+                    <li class="hidden profile">
+                        <a href="profile.html">Profile</a>
                     </li>
-                    <li class="logOut">
-                        <a class="indigo-text text-lighten-2" href="#!">Sign Out</a>
+                    <li class="hidden logOut">
+                        <a href="#">Sign Out</a>
                     </li>
                 </ul>
 
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <form id="signUpForm" class="col s12">
+                                <h2>Sign Up</h2>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="email validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <label for="password">Create Password</label>
+                                        <input type="password" class="password validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <label for="password">Confirm Password</label>
+                                        <input type="password" class="passwordConfirm validate">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" id="signUpSubmit" type="submit">Submit</button>
+                    </div>
+                </div>
+
+                <!-- Modal Structure -->
+                <div id="modal2" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <form id="signInForm"class="col s12">
+                                <h2>Log In</h2>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="email validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="password validate">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" id="signInSubmit" type="submit">Submit</button>
+                    </div>
+                </div>
+            </ul>
         </div>
     </nav>
+        
 
     <div class="row">
         <div class="col s12 profileArea">

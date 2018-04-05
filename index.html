@@ -18,26 +18,26 @@
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
             <!-- <a id="logo-container" href="./assets/images/logo2.jpg" class="brand-logo"></a> -->
-            <a href>
+            <a href="index.html">
                 <img class="logo" src="./assets/images/logo2.jpg" alt="orlandoeats">
             </a>
-            <ul class="right hide-on-med-and-down">
+            <ul class="right">
                 <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>
                     <i class="material-icons">menu</i>
                 </a>
 
                 <ul id='dropdown1' class='dropdown-content'>
-                    <li>
-                        <a data-target="modal1" class="modal-trigger signUp">Sign Up</a>
+                    <li class="signUp">
+                        <a data-target="modal1" class="modal-trigger">Sign Up</a>
                     </li>
-                    <li>
-                        <a data-target="modal2" class="modal-trigger logIn">Log In</a>
+                    <li class="logIn">
+                        <a data-target="modal2" class="modal-trigger">Log In</a>
                     </li>
                     <li class="hidden profile">
                         <a href="profile.html">Profile</a>
                     </li>
                     <li class="hidden logOut">
-                        <a href="#!">Sign Out</a>
+                        <a href="#">Sign Out</a>
                     </li>
                 </ul>
 
@@ -45,31 +45,31 @@
                 <div id="modal1" class="modal">
                     <div class="modal-content">
                         <div class="row">
-                            <form class="col s12">
+                            <form id="signUpForm" class="col s12">
                                 <h2>Sign Up</h2>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="email" type="email" class="validate">
+                                        <input type="email" class="email validate">
                                         <label for="email">Email</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="email" type="email" class="validate">
-                                        <label for="email">Create Password</label>
+                                        <input type="password" class="password validate">
+                                        <label for="password">Create Password</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="email" type="email" class="validate">
-                                        <label for="email">Confirm Password</label>
+                                        <input type="password" class="passwordConfirm validate">
+                                        <label for="password">Confirm Password</label>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn" id="submit" type="submit">Submit</button>
+                        <button class="btn" id="signUpSubmit" type="submit">Submit</button>
                     </div>
                 </div>
 
@@ -77,39 +77,31 @@
                 <div id="modal2" class="modal">
                     <div class="modal-content">
                         <div class="row">
-                            <form class="col s12">
+                            <form id="signInForm"class="col s12">
                                 <h2>Log In</h2>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="email" type="email" class="validate">
                                         <label for="email">Email</label>
+                                        <input type="email" class="email validate">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="email" type="email" class="validate">
-                                        <label for="email">Password</label>
+                                        <label for="password">Password</label>
+                                        <input type="password" class="password validate">
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn" id="submit" type="submit">Submit</button>
+                        <button class="btn" id="signInSubmit" type="submit">Submit</button>
                     </div>
                 </div>
             </ul>
-
-            <ul id="nav-mobile" class="sidenav">
-                <li>
-                    <a href="#">Navbar Link</a>
-                </li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-                <i class="material-icons">menu</i>
-            </a>
         </div>
     </nav>
+        
 
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
