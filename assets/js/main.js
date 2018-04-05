@@ -123,7 +123,7 @@ $(document).ready(function(){
     // Build collections cards
     function buildCollectionCards(collections){
         console.log(collections)
-        collections.forEach(collection => {
+        collections.slice(0,6).forEach(collection => {
             console.log(collection)
             $('.collectionsDiv').append('<div class="card collectionCard" data-collectionId="'+collection.collection.collection_id+'">'+
                                             '<div class="col s12 m4 l4 collections">'+
