@@ -103,6 +103,67 @@ $(document).ready(function(){
 
 
 
+// // ======GOOGLE API FUNCTIONS====== //
+var map;
+var service;
+var infowindow;
+
+function initMap(name, lati, long) {
+    var pyrmont = new google.maps.LatLng(lati,long);
+    
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: pyrmont,
+      zoom: 15
+    });
+    
+    var request = {
+        location: pyrmont,
+        radius: '500',
+        name: name
+    };
+    
+    infowindow = new google.maps.InfoWindow();
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, callback);
+    service.getDetails(request, callback);
+}
+
+function callback(results, status) {
+    console.log(results[0].place_id);
+    
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            createMarker(results[i]);
+        }
+        getPlace(results[0].place_id)
+    }
+}
+function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+    });
+}
+
+function getPlace(placeId){
+      service.getDetails({
+        placeId: placeId
+      }, function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+              console.log(place)
+              buildRestaurantPhotos(place.photos)
+              buildRestaurantReviews(place.reviews)
+          }
+      })
+}
+
+
 
 
 
@@ -127,17 +188,30 @@ $(document).ready(function(){
         console.log(restaurant.name);
         $('#restaurant .restaurantInfo .name').text(restaurant.name)
         $('#restaurant .restaurantInfo .address').text(restaurant.location.address)
+        $('#restaurant .restaurantInfo .cuisines').text('Cuisine ' + restaurant.cuisines)
+        $('#restaurant .restaurantInfo .avgCost').text('Avg. cost for two $' + restaurant.average_cost_for_two)
+        $('#restaurant .restaurantInfo .resUrl a').attr('href', restaurant.url)
+        initMap(restaurant.name, restaurant.location.latitude, restaurant.location.longitude)           
+    }
+    function buildRestaurantPhotos(photos){
+        console.log(photos)
         
-        // $('#restaurant').append('<div class="row">'+
-        //                             '<div class="col s12 m6">'+
-        //                                 '<div class="card blue-grey darken-1">'+
-        //                                     '<div class="card-content white-text">'+
-        //                                         '<span class="card-title">Card Title</span>'+
-        //                                         '<p>'+ JSON.stringify(restaurant) +'</p>'+
-        //                                     '</div>'+
-        //                                 '</div>'+
-        //                             '</div>'+
-        //                         '</div>')            
+        photos.splice(0,3).forEach(photo => {
+            $('#restaurant .resPhotos').append('<div class="col s12 m6 l4">'+
+                                                '<img src="'+ photo.getUrl({'maxWidth': 420, 'maxHeight': 350})  +'" alt="" srcset="">'+
+                                            '</div>')
+        });
+    }
+    function buildRestaurantReviews(reviews){
+        console.log(reviews)
+        reviews.splice(0,3).forEach(review => {
+            $('#restaurant .resReviews .collection').append('<li class="collection-item avatar">'+
+                                                    '<img src="'+ review.profile_photo_url +'" alt="" class="circle">'+
+                                                    '<span class="title">'+ review.author_name +'</span>'+
+                                                    '<p>'+ review.text  +'</p>'+
+                                                    '<a href="#!" class="secondary-content"><i class="material-icons">grade</i>'+ review.rating +'</a>'+
+                                                '</li>')
+        });
     }
 
     // Build the html for the collection results
