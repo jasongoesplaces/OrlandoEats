@@ -284,3 +284,13 @@ nav .button-collapse i {
 .collectionsWrap {
   width: 100%;
 }
+
+
+/* GOOGLE MAPS STYLES */
+.mapContainer {
+  
+}
+#map {
+  min-height: 400px;
+  width: 100%;
+}

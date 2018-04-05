@@ -105,31 +105,32 @@
     <div id="restaurant" class="container">
 
         <div class="row">
-            <div class="col s12 l8">
+            <div class="col s12 l7">
                 <div class="restaurantInfo">
                     <h1 class="name">Resturant Name</h1>
                     <p class="address">11111 sw 24th st Orland, Fl 33333</p>
                     <ul>
-                        <li>Asian</li>
-                        <li>Average Cost</li>
-                        <li>Vist Site</li>
+                        <li class="cuisines">Cuisine</li>
+                        <li class="avgCost">Average Cost</li>
+                        <li class="resUrl"><a href="" target="_blank">Visit Site</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col s12 l4">
-                <img src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&size=400x400&maptype=roadmap&key=AIzaSyAszJS7qyZAOemVMSlfRNJ4FDj5uGI-m1M" alt="">
+            <div class="col s12 l5 mapContainer">
+                <div id="map">
+
+                </div>
+                       
+                <!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&size=400x400&maptype=roadmap&key=AIzaSyAszJS7qyZAOemVMSlfRNJ4FDj5uGI-m1M" alt=""> -->
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 m6 l4">
-                <img src="http://via.placeholder.com/350x350" alt="" srcset="">
-            </div>
-            <div class="col s12 m6 l4">
-                <img src="http://via.placeholder.com/350x350" alt="" srcset="">
-            </div>
-            <div class="col s12 m6 l4">
-                <img src="http://via.placeholder.com/350x350" alt="" srcset="">
-            </div>
+        <div class="row resPhotos">
+            
+        </div>
+        <div class="row resReviews">
+            <ul class="collection">
+                
+            </ul>
         </div>
 
     </div>
@@ -193,6 +194,8 @@
         crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <!-- Google Maps Api -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATZljQ8jpljUmPYg2eeMnRbjP0HyfLUCc&libraries=places"></script>
     <!-- Firebase Module  -->
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <!-- Main JavaScript file -->
