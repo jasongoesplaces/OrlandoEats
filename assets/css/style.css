@@ -31,16 +31,17 @@ nav .brand-logo {
 p {
   line-height: 2rem;
 }
+
 #background1 {
   background-repeat: no-repeat;
   background-size: auto;
 }
 
-.dropdown-trigger {
+.btn {
   background-color: rgb(106, 127, 178);
 }
 
-.dropdown-trigger:hover {
+.btn:hover {
   background-color: rgb(140, 150, 175);
 }
 
@@ -306,4 +307,8 @@ nav .button-collapse i {
 
 .restaurantInfo a {
   color: rgb(58, 90, 172);
+}
+
+.modalHead {
+  color: rgb(106, 127, 178);
 }
