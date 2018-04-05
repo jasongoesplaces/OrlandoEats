@@ -31,6 +31,10 @@ nav .brand-logo {
 p {
   line-height: 2rem;
 }
+#background1 {
+  background-repeat: no-repeat;
+  background-size: auto;
+}
 
 .dropdown-trigger {
   background-color: rgb(106, 127, 178);
@@ -78,8 +82,6 @@ a.menu {
 .icon-block {
   padding: 0 15px;
 }
-
-
 
 .icon-block .material-icons {
   font-size: inherit;
@@ -274,10 +276,10 @@ nav .button-collapse i {
   text-decoration: none;
 }
 
-.collectionCard:last-child {
+/* .collectionCard:last-child {
   left: 33.38%;
   right: 50%;
-}
+} */
 
 .collectionsWrap {
   width: 100%;
