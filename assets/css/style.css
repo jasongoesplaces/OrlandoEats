@@ -256,15 +256,26 @@ nav .button-collapse i {
   color: #fff;
   text-align: center;
   position: absolute;
-  bottom: 20px;
-  padding: 15px;
-  width: 100%;
+  bottom: 40%;
+  padding: 2%;
+  width: 93%;
   line-height: 30px;
   margin-bottom: 0;
+  margin-right: 0;
   font-weight: 300;
+  text-transform: capitalize;
 }
 
 .collections a {
   color: #fff;
   text-decoration: none;
+}
+
+.collectionCard:last-child {
+  left: 33.38%;
+  right: 50%;
+}
+
+.collectionsWrap {
+  width: 100%;
 }
