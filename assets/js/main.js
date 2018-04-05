@@ -26,28 +26,20 @@ $(document).ready(function(){
         // TODO:
         // - dynamically build out html for the carousel include the ajax response from getOrlandoCollection()
     }
-    // TEST > to see if user is on the collectionResuts.html page
-    // if(window.location.pathname === '/collectionResults.html'){
-    //     collectionId = localStorage.getItem('collectionId')
-    //     getCollectionfromId(collectionId)
-    //     localStorage.removeItem('collectionId')
-    //     //TODO:
-    // }
-     // Check to see if current page is the collectionResults page
-     if($('#collectionResults').length > 0){
+    // Check to see if current page is the collectionResults page
+    if($('#collectionResults').length > 0){
         console.log('On collection results page');
         collectionId = localStorage.getItem('collectionId')
         getCollectionfromId(collectionId)
         localStorage.removeItem('collectionId')
     }
-    // TEST > to see if user is on the restaurantView.html page
-    if(window.location.pathname === '/restaurantView.html'){
+    // Check to see if user is on the restaurantView.html page
+    if($('#restaurant').length > 0){
         resId = localStorage.getItem('resId')
         getRestaurant(resId)
         localStorage.removeItem('resId')
-        //TODO:
-
     }
+    
 
 
     // ======= FIREBASE AUTHENTICATION ONCHANGE LISTENER ======= //
@@ -93,10 +85,6 @@ $(document).ready(function(){
 
     // Database no in use yet
     //var database = firebase.database()
-    // // when user submits
-    // $("#submit").on("click", function(event) {
-    //     event.preventDefault();
-    // })
 
 
     // triggers dropdown menu
@@ -136,16 +124,20 @@ $(document).ready(function(){
 
     // Build the html for the restaurant view
     function buildRestaurantView(restaurant){
-        $('#restaurant').append('<div class="row">'+
-                                    '<div class="col s12 m6">'+
-                                        '<div class="card blue-grey darken-1">'+
-                                            '<div class="card-content white-text">'+
-                                                '<span class="card-title">Card Title</span>'+
-                                                '<p>'+ JSON.stringify(restaurant) +'</p>'+
-                                            '</div>'+
-                                        '</div>'+
-                                    '</div>'+
-                                '</div>')            
+        console.log(restaurant.name);
+        $('#restaurant .restaurantInfo .name').text(restaurant.name)
+        $('#restaurant .restaurantInfo .address').text(restaurant.location.address)
+        
+        // $('#restaurant').append('<div class="row">'+
+        //                             '<div class="col s12 m6">'+
+        //                                 '<div class="card blue-grey darken-1">'+
+        //                                     '<div class="card-content white-text">'+
+        //                                         '<span class="card-title">Card Title</span>'+
+        //                                         '<p>'+ JSON.stringify(restaurant) +'</p>'+
+        //                                     '</div>'+
+        //                                 '</div>'+
+        //                             '</div>'+
+        //                         '</div>')            
     }
 
     // Build the html for the collection results
@@ -155,7 +147,7 @@ $(document).ready(function(){
             console.log(restaurant);
 
         $('#collectionResults .row').append('<div class="col s12 m6 l4 xl3">'+
-                                                '<div class="card blue darken-2">'+
+                                                '<div class="card blue darken-2" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
                                                     '<div class="card-content white-text">'+
                                                         '<h1 class="card-title resName">'+ restaurant.restaurant.name +'</h1>'+
                                                         '<p class="resAddress">'+ restaurant.restaurant.location.address +'</p>'+
@@ -255,7 +247,7 @@ $(document).ready(function(){
     })
 
     // ======= ON RESTAURANT CLICK LISTENER ======= //
-    $('.collection').on('click', '.collection-item', (e) => {
+    $('#collectionResults').on('click', '.card', (e) => {
         console.log(e.currentTarget.dataset.resid);
         var resId = e.currentTarget.dataset.resid
         localStorage.setItem('resId', resId)
