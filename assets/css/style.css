@@ -1,11 +1,15 @@
 /* Custom Stylesheet */
 
 /**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
+* Use this file to override Materialize files so you can update
+* the core Materialize files in the future
+*
+* Made By MaterializeCSS.com
+*/
+
+body {
+
+}
 
 nav ul a,
 nav .brand-logo {
@@ -75,11 +79,6 @@ a.menu {
   padding: 0 15px;
 }
 
-body {
-  background-image: url("../images/background1.jpeg");
-  background-repeat: no-repeat;
-
-}
 
 
 .icon-block .material-icons {
@@ -212,6 +211,7 @@ nav .button-collapse i {
 #collectionResults .card {
   height: 250px;
   padding: 20px;
+  cursor: pointer;
 }
 #collectionResults .card-content {
   padding: 10px;
