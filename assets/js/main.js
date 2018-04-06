@@ -93,6 +93,7 @@ $(document).ready(function(){
     $('.modal').modal();
     //profile page tabs functionality
     $('.tabs').tabs();
+    $('.parallax').parallax();
 
     
 }) // << Document load end
