@@ -217,6 +217,7 @@ function getPlace(placeId){
     // Build the html for the collection results
     function buildCollectionRestults(restaurants){
         console.log("Restuarants " + restaurants);
+        $('#resultsHeader').append('<h1 class="center">'+ collectionName +'</h1>')
         restaurants.forEach(restaurant => {
             console.log(restaurant);
 
@@ -234,7 +235,6 @@ function getPlace(placeId){
         //                                             //'<img src="https://maps.googleapis.com/maps/api/staticmap?center="",""&zoom=12&size=400x400&maptype=roadmap&key=AIzaSyAszJS7qyZAOemVMSlfRNJ4FDj5uGI-m1M">'+
         //                                         '</div>'+
         //                                     '</div>')    
-        $('#resultsHeader').append('<h1>'+ collectionName +'</h1>')
         
         $('#collectionResults .row').append('<div class="col s12 m4">'+
                                                 '<div class="card collResultsCard" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
