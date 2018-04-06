@@ -211,12 +211,9 @@ nav .button-collapse i {
 
 
 /* COLLECTION RESULTS STYLES */
-#resultsHeader {
-  
-}
 .collResultsCard {
   cursor: pointer;
-  min-height: 400px;
+  min-height: 410px;
 }
 .collResultsCard .card-content {
   padding: 10px;
@@ -224,7 +221,8 @@ nav .button-collapse i {
 .collResultsCard .resName{
   margin-top: 10px;
   font-weight: 800;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  line-height: 23px
 }
 .collResultsCard  .resAddress{
   line-height: 20px;
