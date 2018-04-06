@@ -95,6 +95,7 @@ $(document).ready(function(){
     $('.modal').modal();
     //profile page tabs functionality
     $('.tabs').tabs();
+    $('.parallax').parallax();
 
     
 }) // << Document load end
@@ -288,6 +289,23 @@ function getPlace(placeId){
     }
 
     //======AJAX REQUEST FUCTIONS======//
+    function searchOrlando(query){
+        $.ajax({
+            url: 'https://developers.zomato.com/api/v2.1/search?entity_id=601&entity_type=city&q='+query,
+            method: 'GET',
+            headers: {
+                "user-key": zomatoApiKey
+            }
+        }).then((data) => {
+            console.log(data)
+            buildCollectionRestults(collectionData)
+            // on response call buildRestaurant(response as Parameters) function to build html
+            // TODO: Create buildRestaurant(data) function
+        }).catch((err) => {
+            console.log(err); // Error handler
+        })
+    }
+
     function getOrlandoCollection(){
         $.ajax({
             url: 'https://developers.zomato.com/api/v2.1/collections?city_id=601',
@@ -349,6 +367,10 @@ function getPlace(placeId){
     
 // ====== GLOBAL SITE LISTENERS ====== //
 
+    // ====== ON SEARCH SUBMIT CLICK LISTENER ====== //
+    $('.searchField').on('click', '.searchButton', (e) => {
+        searchOrlando($('.searchBar').val().trim())
+    })
 
     // ======= ON COLLECTION CLICK LISTENER ======= //
     $('.collectionsDiv').on('click', '.collectionCard', (e) => {

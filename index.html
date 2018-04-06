@@ -50,19 +50,19 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input type="email" class="email validate">
-                                        <label for="email">Email</label>
+                                        <label class="modalLabel" for="email">Email</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input type="text" class="password validate">
-                                        <label for="password">Create Password</label>
+                                        <label class="modalLabel" for="password">Create Password</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input type="text" class="passwordConfirm validate">
-                                        <label for="passwordConfirm">Confirm Password</label>
+                                        <label class="modalLabel" for="passwordConfirm">Confirm Password</label>
                                     </div>
                                 </div>
                             </form>
@@ -81,13 +81,13 @@
                                 <h2 class="modalHead">Log In</h2>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <label for="email">Email</label>
+                                        <label class="modalLabel" for="email">Email</label>
                                         <input type="email" class="email validate">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <label for="password">Password</label>
+                                        <label class="modalLabel" for="password">Password</label>
                                         <input type="text" class="password validate">
                                     </div>
                                 </div>
@@ -108,64 +108,44 @@
             <div class="container">
                 <br>
                 <br>
-                <h1 class="header center rgb(106, 127, 178)-text text-lighten-2">Orlando Eats</h1>
+                <h1 class="header center rgb(106, 127, 178)-text text-lighten-2 parallaxText">Orlando Eats</h1>
                 <div class="row center">
-                    <h5 class="header col s12 light">Find the best restaurants, cafés, and bars in Orlando!</h5>
+                    <h5 class="header col s12 light parallaxText">Find the best restaurants, cafés, and bars in Orlando!</h5>
                 </div>
                 <div class="row center">
-                    <a href="https://aalkowni90.github.io/Orlandoeats/collectionResults.html" id="download-button" class="btn-large waves-effect waves-light lighten-1">Get Started</a>
+                    <div class="col s2"></div>
+                    <div class="input-field col s8 searchField">
+                        <i class="material-icons prefix">search</i>
+                        <input id="icon_prefix" type="text" class="searchBar">
+                        <label for="icon_prefix"></label>
+                        <button class="btn searchButton" type="submit">Search</button>
+                    </div>
+                    <div class="col s2"></div>
                 </div>
                 <br>
                 <br>
 
             </div>
         </div>
-        <div class="parallax">
+        <div id="image1"class="parallax">
             <img src="assets/images/background2.jpg" alt="Unsplashed background img 1" style="transform: translate3d(-50%, 240.732px, 0px); opacity:1;">
         </div>
     </div>
 
 
     <div class="container">
-        <div class="section">
-
-            <!--   Icon Section   -->
-            <div class="row">
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center brown-text">
-                            <i class="material-icons">place</i>
-                        </h2>
-                        <h5 class="center">Explore new eats</h5>
-
-                        <p class="light">Our vast community of food lovers share their reviews and photos, so you have all that you need to make an informed choice of your next&nbsp;foodie&nbsp;moment.</p>
+            <div class="section">
+                    <div class="row siteTitle">
+                        <div class="col s12 offset-m1 m10 center">
+                            <h3>
+                                <i class="mdi-content-send brown-text"></i>
+                            </h3>
+                            <h4>Your Next Foodie Moment</h4>
+                            <p class="left-align light">
+                                Helping you discover great places to eat around you. Our website app uses the Zomato API to gather information from every restaurant on a regular basis to ensure the data is fresh. Our vast community of fellow food lovers share their reviews and photos, so you have all that you need to make an informed choice on your next &nbsp;meal.&nbsp;</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center brown-text">
-                            <i class="material-icons">group</i>
-                        </h2>
-                        <h5 class="center">Popular Eats</h5>
-
-                        <p class="light">Building amazing experiences around the foods we love to eat with the people &nbsp;we&nbsp;love. </p>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center brown-text">
-                            <i class="material-icons">rate_review</i>
-                        </h2>
-                        <h5 class="center">Top Reviews</h5>
-
-                        <p class="light">We have provided detailed reviews of all the resturants available in Orlando based on the cuisine category that you&nbsp;choose&nbsp;from.</p>
-                    </div>
-                </div>
             </div>
-
-        </div>
     </div>
 
 
@@ -176,28 +156,43 @@
             </div>
         </div>
     </div>
+   <div class="container">
+    <!--   Icon Section   -->
+            <div class="row siteContent">
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center indigo-text text-lighten-2">
+                            <i class="material-icons">place</i>
+                        </h2>
+                        <h5 class="center">Explore new eats</h5>
 
-    <div class="container">
-        <div class="section">
+                        <p class="light">Our vast community of food lovers share their reviews and photos, so you have all that you need to make an informed choice of your next&nbsp;foodie&nbsp;moment.</p>
+                    </div>
+                </div>
 
-            <div class="row">
-                <div class="col s12 center">
-                    <h3>
-                        <i class="mdi-content-send brown-text"></i>
-                    </h3>
-                    <h4>Contact Us</h4>
-                    <p class="left-align light">
-                        pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros
-                        justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget,
-                        bibendum sollicitudin lacugs. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam
-                        eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et
-                        ultrices posuere&nbsp;cubilia&nbsp;Curae.</p>
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center indigo-text text-lighten-2">
+                            <i class="material-icons">group</i>
+                        </h2>
+                        <h5 class="center">Popular Eats</h5>
+
+                        <p class="light">Building amazing experiences around the foods we love to eat with the people &nbsp;we&nbsp;love. </p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center indigo-text text-lighten-2">
+                            <i class="material-icons">rate_review</i>
+                        </h2>
+                        <h5 class="center">Top Reviews</h5>
+
+                        <p class="light">We have provided detailed reviews of all the resturants available in Orlando based on the cuisine category that you&nbsp;choose&nbsp;from.</p>
+                    </div>
                 </div>
             </div>
-
-        </div>
     </div>
-
 
     <div class="parallax-container valign-wrapper">
         <div class="section no-pad-bot">
