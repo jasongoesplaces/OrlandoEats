@@ -297,8 +297,9 @@ function getPlace(placeId){
                 "user-key": zomatoApiKey
             }
         }).then((data) => {
+            console.log("Search Data:")
             console.log(data)
-            buildCollectionRestults(collectionData)
+            //buildCollectionRestults(collectionData)
             // on response call buildRestaurant(response as Parameters) function to build html
             // TODO: Create buildRestaurant(data) function
         }).catch((err) => {
@@ -369,7 +370,11 @@ function getPlace(placeId){
 
     // ====== ON SEARCH SUBMIT CLICK LISTENER ====== //
     $('.searchField').on('click', '.searchButton', (e) => {
-        searchOrlando($('.searchBar').val().trim())
+        var query = $('.searchField .searchBar').val().trim()
+        console.log(query)
+        searchOrlando(query)
+        $('.searchBar').val()
+        
     })
 
     // ======= ON COLLECTION CLICK LISTENER ======= //
