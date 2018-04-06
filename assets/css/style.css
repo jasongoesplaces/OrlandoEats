@@ -32,6 +32,16 @@ p {
   line-height: 2rem;
 }
 
+#image1 {
+  background-repeat: no-repeat;
+  background-size: 100% auto; 
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 #background1 {
   background-repeat: no-repeat;
   background-size: auto;
