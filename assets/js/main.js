@@ -28,12 +28,22 @@ $(document).ready(function(){
     }
     // Check to see if current page is the collectionResults page
     if($('#collectionResults').length > 0){
+        if(localStorage.getItem('collectionId') && localStorage.getItem('collectionName')){
+            console.log('Collections');
+            
+            collectionId = localStorage.getItem('collectionId')
+            collectionName = localStorage.getItem('collectionName')
+            getCollectionfromId(collectionId, collectionName)
+            localStorage.removeItem('collectionId')
+            localStorage.removeItem('collectionName')
+        }
+        if(localStorage.getItem('searchQuery')){
+            console.log('Search');
+            query = localStorage.getItem('searchQuery')
+            searchOrlando(query)
+            localStorage.removeItem('searchQuery')
+        }
         console.log('On collection results page');
-        collectionId = localStorage.getItem('collectionId')
-        collectionName = localStorage.getItem('collectionName')
-        getCollectionfromId(collectionId, collectionName)
-        localStorage.removeItem('collectionId')
-        localStorage.removeItem('collectionName')
     }
     // Check to see if user is on the restaurantView.html page
     if($('#restaurant').length > 0){
@@ -129,7 +139,7 @@ function initMap(name, lati, long) {
 }
 
 function callback(results, status) {
-    console.log(results[0].place_id);
+    console.log(results[0]);
     
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
@@ -185,7 +195,7 @@ function getPlace(placeId){
 
     // Build the html for the restaurant view
     function buildRestaurantView(restaurant){
-        console.log(restaurant.name);
+        console.log('Current res '  + restaurant);
         $('#restaurant .restaurantInfo .name').text(restaurant.name)
         $('#restaurant .restaurantInfo .address').text(restaurant.location.address)
         $('#restaurant .restaurantInfo .cuisines').text('Cuisine ' + restaurant.cuisines)
@@ -213,11 +223,11 @@ function getPlace(placeId){
                                                 '</li>')
         });
     }
-
+    
     // Build the html for the collection results
-    function buildCollectionRestults(restaurants){
+    function buildCollectionRestults(restaurants, header){
         console.log("Restuarants " + restaurants);
-        $('#resultsHeader').append('<h1 class="center">'+ collectionName +'</h1>')
+        $('#resultsHeader').append('<h1 class="center">'+ header +'</h1>')
         restaurants.forEach(restaurant => {
             console.log(restaurant);
 
@@ -240,9 +250,9 @@ function getPlace(placeId){
                                                 '<div class="card collResultsCard" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
                                                     '<div class="card-image">'+
                                                         '<img src="https://loremflickr.com/320/240">'+
-                                                        '</div>'+
-                                                        '<div class="card-content">'+
-                                                            '<span class="card-title resName" data-resId="'+ restaurant.restaurant.R.res_id +'">'+ restaurant.restaurant.name +'</span>'+
+                                                    '</div>'+
+                                                    '<div class="card-content">'+
+                                                        '<span class="card-title resName" data-resId="'+ restaurant.restaurant.R.res_id +'">'+ restaurant.restaurant.name +'</span>'+
                                                         '<p class="resAddress">'+ restaurant.restaurant.location.address +'</p>'+
                                                     '</div>'+
                                                     '<div class="card-action collectionActions center">'+
@@ -297,11 +307,9 @@ function getPlace(placeId){
                 "user-key": zomatoApiKey
             }
         }).then((data) => {
-            console.log("Search Data:")
             console.log(data)
-            //buildCollectionRestults(collectionData)
-            // on response call buildRestaurant(response as Parameters) function to build html
-            // TODO: Create buildRestaurant(data) function
+            collectionData = data.restaurants
+            buildCollectionRestults(collectionData, query)
         }).catch((err) => {
             console.log(err); // Error handler
         })
@@ -325,7 +333,7 @@ function getPlace(placeId){
         })
     }
 
-    function getCollectionfromId(collectionId){
+    function getCollectionfromId(collectionId, collectionName){
         // AJAX request to get results based on collectionId
         $.ajax({
             url: 'https://developers.zomato.com/api/v2.1/search?entity_id=601&entity_type=city&collection_id=' + collectionId,
@@ -336,7 +344,7 @@ function getPlace(placeId){
         }).then((data) => {
             console.log(data)
             collectionData = data.restaurants
-            buildCollectionRestults(collectionData)
+            buildCollectionRestults(collectionData ,collectionName)
             // on response call buildCollections(response as Parameters) function to build html
             // TODO: Create buildResults(data) function
         }).catch((err) => {
@@ -369,12 +377,13 @@ function getPlace(placeId){
 // ====== GLOBAL SITE LISTENERS ====== //
 
     // ====== ON SEARCH SUBMIT CLICK LISTENER ====== //
-    $('.searchField').on('click', '.searchButton', (e) => {
-        var query = $('.searchField .searchBar').val().trim()
-        console.log(query)
-        searchOrlando(query)
-        $('.searchBar').val()
-        
+    $('.parallax-container .searchField').on('click', '.searchButton', (e) => {
+        console.log(e);
+        e.preventDefault()
+        var query = $('.searchBar').val().trim()
+        var collectionName = e.currentTarget.textContent
+        localStorage.setItem('searchQuery', query)
+        window.location.replace('collectionResults.html')
     })
 
     // ======= ON COLLECTION CLICK LISTENER ======= //
