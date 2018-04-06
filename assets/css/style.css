@@ -211,27 +211,30 @@ nav .button-collapse i {
 
 
 /* COLLECTION RESULTS STYLES */
-#collectionResults .card {
-  height: 250px;
-  padding: 20px;
+.collResultsCard {
   cursor: pointer;
+  min-height: 380px;
 }
-#collectionResults .card-content {
+.collResultsCard .card-content {
   padding: 10px;
 }
-#collectionResults .card-content .resName{
+.collResultsCard .resName{
   margin-top: 10px;
   font-weight: 800;
+  font-size: 1.2em;
 }
-#collectionResults .card-content .resAddress{
+.collResultsCard  .resAddress{
   line-height: 20px;
   margin: 10px 0;
 }
-#collectionResults .card-content p{
+.collResultsCard .collectionActions {
+  padding: 0;
+}
+.collResultsCard .collectionActions p{
   display: inline-block;
   margin-right: 20px;
 }
-#collectionResults .card-content i{
+.collResultsCard .collectionActions i{
   margin-right: 5px;
 }
 /* END COLLECTION RESULTS */
@@ -297,9 +300,9 @@ nav .button-collapse i {
   width: 100%;
 }
 
-.collResultsCard {
+/* .collResultsCard {
   background-color: rgb(106, 127, 178);
-}
+} */
 
 .restaurantInfo {
   color: rgb(106, 127, 178);
