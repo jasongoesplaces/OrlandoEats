@@ -42,11 +42,22 @@ p {
 }
 
 .btn:hover {
-  background-color: rgb(140, 150, 175);
+  background-color: white;
+  color: rgb(106, 127, 178);
 }
 
 .btn:focus {
   background-color: rgb(58, 90, 172);
+}
+
+.searchButton {
+  background-color: white;
+  color: rgb(106, 127, 178);
+}
+
+.searchButton:hover {
+  background-color: rgb(106, 127, 178);
+  color: white;
 }
 
 a.menu {
