@@ -30,13 +30,15 @@ $(document).ready(function(){
     if($('#collectionResults').length > 0){
         console.log('On collection results page');
         collectionId = localStorage.getItem('collectionId')
-        getCollectionfromId(collectionId)
+        collectionName = localStorage.getItem('collectionName')
+        getCollectionfromId(collectionId, collectionName)
         localStorage.removeItem('collectionId')
+        localStorage.removeItem('collectionName')
     }
     // Check to see if user is on the restaurantView.html page
     if($('#restaurant').length > 0){
         resId = localStorage.getItem('resId')
-        getRestaurant(resId)
+        getRestaurant(resId, )
         localStorage.removeItem('resId')
     }
     
@@ -218,22 +220,61 @@ function getPlace(placeId){
         restaurants.forEach(restaurant => {
             console.log(restaurant);
 
-        $('#collectionResults .row').append('<div class="col s12 m6 l4 xl3">'+
+        // $('#collectionResults .row').append('<div class="col s12 m6 l4 xl3">'+
+        //                                         '<div class="card collResultsCard" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
+        //                                             '<div class="card-content white-text">'+
+        //                                                 '<h1 class="card-title resName">'+ restaurant.restaurant.name +'</h1>'+
+        //                                                 '<p class="resAddress">'+ restaurant.restaurant.location.address +'</p>'+
+        //                                                 '<div class="collectionActions">'+
+        //                                                     '<p class="costForTwo"><i class="material-icons">attach_money</i>'+ restaurant.restaurant.average_cost_for_two +'</p>'+
+        //                                                     '<p class="averageRating"><i class="material-icons">group</i>'+ restaurant.restaurant.user_rating.aggregate_rating +'</p>'+
+        //                                                     '<p class="favorite"><i class="material-icons">favorite_border</i></p>'+
+        //                                                 '</div>'+
+        //                                             '</div>'+
+        //                                             //'<img src="https://maps.googleapis.com/maps/api/staticmap?center="",""&zoom=12&size=400x400&maptype=roadmap&key=AIzaSyAszJS7qyZAOemVMSlfRNJ4FDj5uGI-m1M">'+
+        //                                         '</div>'+
+        //                                     '</div>')    
+        $('#resultsHeader').append('<h1>'+ collectionName +'</h1>')
+        
+        $('#collectionResults .row').append('<div class="col s12 m4">'+
                                                 '<div class="card collResultsCard" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
-                                                    '<div class="card-content white-text">'+
-                                                        '<h1 class="card-title resName">'+ restaurant.restaurant.name +'</h1>'+
-                                                        '<p class="resAddress">'+ restaurant.restaurant.location.address +'</p>'+
-                                                        '<div class="collectionActions">'+
-                                                            '<p class="costForTwo"><i class="material-icons">attach_money</i>'+ restaurant.restaurant.average_cost_for_two +'</p>'+
-                                                            '<p class="averageRating"><i class="material-icons">group</i>'+ restaurant.restaurant.user_rating.aggregate_rating +'</p>'+
-                                                            '<p class="favorite"><i class="material-icons">favorite_border</i></p>'+
+                                                    '<div class="card-image">'+
+                                                        '<img src="https://loremflickr.com/320/240">'+
                                                         '</div>'+
+                                                        '<div class="card-content">'+
+                                                            '<span class="card-title resName" data-resId="'+ restaurant.restaurant.R.res_id +'">'+ restaurant.restaurant.name +'</span>'+
+                                                        '<p class="resAddress">'+ restaurant.restaurant.location.address +'</p>'+
                                                     '</div>'+
-                                                    //'<img src="https://maps.googleapis.com/maps/api/staticmap?center="",""&zoom=12&size=400x400&maptype=roadmap&key=AIzaSyAszJS7qyZAOemVMSlfRNJ4FDj5uGI-m1M">'+
+                                                    '<div class="card-action collectionActions center">'+
+                                                        '<p class="costForTwo"><i class="material-icons">attach_money</i>'+ restaurant.restaurant.average_cost_for_two +'</p>'+
+                                                        '<p class="averageRating"><i class="material-icons">group</i>'+ restaurant.restaurant.user_rating.aggregate_rating +'</p>'+
+                                                        '<p class="favorite"><i class="material-icons">favorite_border</i></p>'+
+                                                    '</div>'+
                                                 '</div>'+
                                             '</div>')    
-        });
 
+        // $('#collectionResults .row').append(
+        //     '<div class="col s12 m4 ">'+
+        //         '<div class="card collResultCard" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
+        //             '<div class="card-image waves-effect waves-block waves-light">'+
+        //                 '<img class="activator" src="https://loremflickr.com/320/240/'+ restaurant.restaurant.cuisines +'">'+
+        //             '</div>'+
+        //             '<div class="card-content">'+
+        //                 '<span class="card-title resName activator grey-text text-darken-4">'+ restaurant.restaurant.name +'<i class="material-icons right">more_vert</i></span>'+
+        //                 '<div class="collectionActions">'+
+        //                     '<p class="costForTwo"><i class="material-icons">attach_money</i>'+ restaurant.restaurant.average_cost_for_two +'</p>'+
+        //                     '<p class="averageRating"><i class="material-icons">group</i>'+ restaurant.restaurant.user_rating.aggregate_rating +'</p>'+
+        //                     '<p class="favorite"><i class="material-icons">favorite_border</i></p>'+
+        //                 '</div>'+
+        //             '</div>'+
+        //             '<div class="card-reveal">'+
+        //                 '<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>'+
+        //                 '<p>Here is some more information about this product that is only revealed once clicked on.</p>'+
+        //             '</div>'+
+        //         '</div>'+
+        //     '</div>')
+        
+        });
     }
 
     // Builds html for the User Profile
@@ -333,9 +374,11 @@ function getPlace(placeId){
 
     // ======= ON COLLECTION CLICK LISTENER ======= //
     $('.collectionsDiv').on('click', '.collectionCard', (e) => {
-        console.log(e.currentTarget.dataset.collectionid);
+        console.log(e);
         var collectionId = e.currentTarget.dataset.collectionid
+        var collectionName = e.currentTarget.textContent
         localStorage.setItem('collectionId', collectionId)
+        localStorage.setItem('collectionName', collectionName)
         window.location.replace('collectionResults.html')
     })
 
