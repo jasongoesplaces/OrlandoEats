@@ -389,3 +389,24 @@ nav .button-collapse i {
   border-bottom: 1px solid rgb(106, 127, 178) !important;
   box-shadow: 0 1px 0 0 rgb(106, 127, 178) !important;
 }
+
+/* RESTAURANT VIEWS */
+#restaurant .row {
+  margin: 50px;
+}
+#restaurant .resPhotos {
+  height: 190px;
+  overflow: hidden;
+}
+#restaurant .resPhotos .col {
+  padding: 0;
+  
+  object-fit: cover;
+}
+#restaurant .resReviews .collection {
+  border: none;
+}
+#restaurant .resReviews .collection .collection-item {
+  background-color: #f4f4f4;
+  margin: 10px 0;
+}

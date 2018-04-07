@@ -179,6 +179,32 @@ function getPlace(placeId){
 
 // ====== GLOBAL SITE FUNCTIONS ====== //
 
+    function writeToFavs(resId){
+        if(firebase.auth().currentUser){
+            db.push(resId)
+            return db.on('value', function(snapshot) {
+                console.log(snapshot.val()); 
+            });
+        }
+    }
+
+    // function rmFromFavs(resId){
+    //     if(firebase.auth().currentUser){
+    //         console.log(resId);
+            
+    //         db.on('value', function(snapshot) {
+    //             console.log(snapshot.key) 
+    //             for(item in snapshot.val()){
+    //                 console.log(snapshot.val()[item]);
+                    
+    //                 // if(snapshot.val()[item] === resId){
+    //                 //     console.log('Removed');
+    //                 // }
+    //             }
+    //         });
+    //     }
+    // }
+
     // Build collections cards
     function buildCollectionCards(collections){
         console.log(collections)
@@ -208,7 +234,7 @@ function getPlace(placeId){
         
         photos.splice(0,3).forEach(photo => {
             $('#restaurant .resPhotos').append('<div class="col s12 m6 l4">'+
-                                                '<img src="'+ photo.getUrl({'maxWidth': 420, 'maxHeight': 350})  +'" alt="" srcset="">'+
+                                                '<img class="responsive-img" src="'+ photo.getUrl({'maxWidth': 1010, 'maxHeight': 830})  +'" alt="" srcset="">'+
                                             '</div>')
         });
     }
@@ -251,14 +277,14 @@ function getPlace(placeId){
                                                     '<div class="card-image">'+
                                                         '<img src="https://loremflickr.com/320/240">'+
                                                     '</div>'+
-                                                    '<div class="card-content">'+
+                                                    '<div class="card-content" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
                                                         '<span class="card-title resName" data-resId="'+ restaurant.restaurant.R.res_id +'">'+ restaurant.restaurant.name +'</span>'+
                                                         '<p class="resAddress">'+ restaurant.restaurant.location.address +'</p>'+
                                                     '</div>'+
                                                     '<div class="card-action collectionActions center">'+
                                                         '<p class="costForTwo"><i class="material-icons">attach_money</i>'+ restaurant.restaurant.average_cost_for_two +'</p>'+
                                                         '<p class="averageRating"><i class="material-icons">group</i>'+ restaurant.restaurant.user_rating.aggregate_rating +'</p>'+
-                                                        '<p class="favorite"><i class="material-icons">favorite_border</i></p>'+
+                                                        '<p class="favorite addToFavs"><i class="material-icons">favorite_border</i></p>'+
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>')    
@@ -376,6 +402,24 @@ function getPlace(placeId){
     
 // ====== GLOBAL SITE LISTENERS ====== //
 
+    // ======= ON ADD TO FAVORITES BUTTON CLICK LISTENER ======= //
+    $('body').on('click', '.addToFavs', (e) => {
+        e.target.childNodes[0].nodeValue = 'favorite'
+        $(e.currentTarget).removeClass('addToFavs')
+        $(e.currentTarget).addClass('rmFromFavs')
+        resId = e.currentTarget.offsetParent.dataset.resid
+        writeToFavs(resId)        
+    })
+
+    // ======= ON REMOVE FROM FAVORITES BUTTON CLICK LISTENER ======= //
+    $('body').on('click', '.rmFromFavs', (e) => {
+        e.target.childNodes[0].nodeValue = 'favorite_border'
+        $(e.currentTarget).addClass('addToFavs')
+        $(e.currentTarget).removeClass('rmFromFavs')  
+        resId = e.currentTarget.offsetParent.dataset.resid
+        rmFromFavs(resId)     
+    })
+
     // ====== ON SEARCH SUBMIT CLICK LISTENER ====== //
     $('.parallax-container .searchField').on('click', '.searchButton', (e) => {
         console.log(e);
@@ -397,7 +441,7 @@ function getPlace(placeId){
     })
 
     // ======= ON RESTAURANT CLICK LISTENER ======= //
-    $('#collectionResults').on('click', '.card', (e) => {
+    $('#collectionResults').on('click', '.card-content', (e) => {
         console.log(e.currentTarget.dataset.resid);
         var resId = e.currentTarget.dataset.resid
         localStorage.setItem('resId', resId)
@@ -488,22 +532,12 @@ function getPlace(placeId){
     // =======  USER UPDATE PROFILE LISTENER ======= //
     // When user clicks the Update Profile button
     $('#profile').on('click', '#editProfile', () => {
-        console.log('Ready to update');
-        // Add a file upload input to the photoUrl
-        //$('#current_user_profile .photoUrl').after('<input class="photoInput form-control mr-sm-2"  type="file" placeholder="">') 
-        // Add a text input form to the name
-        $('#profile .name').after('<input class="nameInput form-control"  type="text" placeholder="Enter name here">') 
-        // Add a Save profile button
-        $('#profile #editProfile').after('<a href="#" id="saveProfile" class="">Save Profile</a>')
-        // Remove the edit profile button
-        $('#profile #editProfile').remove()
-
         // when user clicks the save button 
-        $('#profile #saveProfile').on('click', (e) => {
+        $('#editProfile').on('click', '#profileEditSubmit', (e) => {
             e.preventDefault()
             // get values from input fields
             //var photoURL = $('#current_user_profile .photoInput').val().trim() // photo input
-            var name = $('#profile .nameInput').val().trim() // name input
+            var name = $('#editForm .name').val().trim() // name input
             //console.log(photoURL);
             console.log(name);
             
