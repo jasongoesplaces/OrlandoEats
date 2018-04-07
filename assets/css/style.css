@@ -76,7 +76,7 @@ a.menu {
 }
 
 @media only screen and (max-width: 992px) {
-  .parallax-container .section {
+  .parallax-container .section #nav-toggle {
     position: absolute;
     top: 40%;
   }
@@ -86,7 +86,7 @@ a.menu {
 }
 
 @media only screen and (max-width: 600px) {
-  #index-banner .section {
+  #index-banner #nav-toggle .section {
     top: 0;
   }
 }
@@ -341,4 +341,41 @@ nav .button-collapse i {
 
 .homeText {
   color: rgb(106, 127, 178);
+}
+
+
+#nav-toggle { position: absolute; border-left: 50%; top: 50%; }
+
+#nav-toggle { cursor: pointer; padding: 10px 35px 16px 0px; }
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: rgb(140, 150, 175);
+  position: absolute;
+  display: block;
+  content: '';
+}
+#nav-toggle span:before {
+  top: -10px; 
+}
+#nav-toggle span:after {
+  bottom: -10px;
+}
+
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+  transition: all 500ms ease-in-out;
+}
+#nav-toggle.active span {
+  background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+  top: 0;
+}
+#nav-toggle.active span:before {
+  transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+  transform: rotate(-45deg);
 }
