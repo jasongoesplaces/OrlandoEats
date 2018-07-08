@@ -275,7 +275,7 @@ function getPlace(placeId){
         $('#collectionResults .row').append('<div class="col s12 m4">'+
                                                 '<div class="card collResultsCard" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
                                                     '<div class="card-image">'+
-                                                        '<img src="https://loremflickr.com/320/240">'+
+                                                        '<img src="https://loremflickr.com/320/240/food">'+
                                                     '</div>'+
                                                     '<div class="card-content" data-resId="'+ restaurant.restaurant.R.res_id +'">'+
                                                         '<span class="card-title resName" data-resId="'+ restaurant.restaurant.R.res_id +'">'+ restaurant.restaurant.name +'</span>'+
